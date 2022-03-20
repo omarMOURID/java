@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -13,7 +12,8 @@ public class TestUniversite {
         int n = 0;
 
         Universite un = new Universite("/home/omar/TP3/src/fichier.txt");
-
+        genererEtudiant(un);
+        genererUE(un);
 
         while(option != 6)
         {
@@ -95,4 +95,23 @@ public class TestUniversite {
         while( un.indice_etudiants(cp) != -1) cp+=1;
         return cp;
     }
+
+    public static void genererUE(Universite un){
+        int cp = 1;
+        String s = "USPN";
+        while ( un.getNB_UEs() < un.getNB_max_UE()) {
+            while (un.indice_UE(s + cp) != -1) {
+                cp++;
+            }
+
+            un.ajouter_UE(new UE(s + cp, s + cp, 30));
+        }
+    }
+
+    public static void genererEtudiant(Universite un){
+        while ( un.getNB_etudiants() < un.getNB_max_etudiants()) {
+            un.inscrire_etudiant(new Etudiant((new RandomNameGeneratorImpl()).createName(),genererNumero(un)));
+        }
+    }
 }
+

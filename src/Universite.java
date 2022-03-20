@@ -21,6 +21,14 @@ public class Universite {
         this.tab_UEs = new UE[NB_max_UE];
         this.tab_etudiants = new Etudiant[NB_max_etudiants];
     }
+    public int getNB_max_etudiants(){   return NB_max_etudiants;}
+
+    public int getNB_etudiants(){   return NB_etudiants;}
+
+    public int getNB_max_UE(){   return NB_max_UE;}
+
+    public int getNB_UEs(){   return NB_UEs;}
+
 
     public Universite(String path) throws IOException {
         File file = new File(path);
